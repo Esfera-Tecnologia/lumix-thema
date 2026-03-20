@@ -1,0 +1,487 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>HUB | Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Sora:wght@500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+  </head>
+  <body class="hub-app theme-light" data-page="dashboard">
+    <div class="hub-backdrop" data-sidebar-close></div>
+
+    <div class="hub-layout">
+      <aside class="hub-sidebar">
+        <div class="sidebar-header">
+          <a href="dashboard.html" class="sidebar-brand">
+            <span class="sidebar-brand-mark">H</span>
+            <span class="sidebar-brand-text">
+              <strong>HUB</strong>
+              <small>LUMIX Operations</small>
+            </span>
+          </a>
+          <button class="btn btn-icon d-none d-lg-inline-flex" type="button" data-sidebar-toggle aria-label="Recolher menu">
+            <i class="bi bi-layout-sidebar-inset"></i>
+          </button>
+        </div>
+
+        <div class="sidebar-body">
+          <div class="sidebar-section">
+            <span class="sidebar-section-title">Visão geral</span>
+            <nav class="sidebar-nav">
+              <a href="dashboard.html" class="sidebar-link" data-nav-target="dashboard">
+                <i class="bi bi-grid-1x2"></i>
+                <span>Dashboard</span>
+              </a>
+
+              <div class="sidebar-group" data-nav-group="configuracao">
+                <button class="sidebar-link sidebar-toggle" type="button" data-submenu-toggle aria-expanded="false">
+                  <span class="sidebar-link-main">
+                    <i class="bi bi-sliders2"></i>
+                    <span>Configuração</span>
+                  </span>
+                  <i class="bi bi-chevron-down submenu-arrow"></i>
+                </button>
+                <div class="sidebar-submenu">
+                  <a href="#" class="sidebar-sublink">Usuários e perfis</a>
+                  <a href="#" class="sidebar-sublink">Regras de integração</a>
+                  <a href="#" class="sidebar-sublink">Conectores</a>
+                </div>
+              </div>
+
+              <div class="sidebar-group" data-nav-group="pedidos">
+                <button class="sidebar-link sidebar-toggle" type="button" data-submenu-toggle aria-expanded="false">
+                  <span class="sidebar-link-main">
+                    <i class="bi bi-bag-check"></i>
+                    <span>Pedidos</span>
+                  </span>
+                  <i class="bi bi-chevron-down submenu-arrow"></i>
+                </button>
+                <div class="sidebar-submenu">
+                  <a href="pedidos-lista.html" class="sidebar-sublink" data-nav-target="pedidos-lista">Lista de pedidos</a>
+                  <a href="pedidos-cadastro.html" class="sidebar-sublink" data-nav-target="pedidos-cadastro">Cadastro / Integração</a>
+                </div>
+              </div>
+            </nav>
+          </div>
+
+          <div class="sidebar-section">
+            <span class="sidebar-section-title">Módulos</span>
+            <nav class="sidebar-nav">
+              <a href="#" class="sidebar-link" data-nav-target="lumix">
+                <i class="bi bi-broadcast"></i>
+                <span>Lumix</span>
+              </a>
+              <a href="#" class="sidebar-link" data-nav-target="magentos">
+                <i class="bi bi-box-seam"></i>
+                <span>Magentos</span>
+              </a>
+              <a href="#" class="sidebar-link" data-nav-target="consulta-sap">
+                <i class="bi bi-database-check"></i>
+                <span>Consulta SAP</span>
+              </a>
+              <a href="#" class="sidebar-link" data-nav-target="anymarket">
+                <i class="bi bi-diagram-3"></i>
+                <span>Anymarket</span>
+              </a>
+              <a href="#" class="sidebar-link" data-nav-target="shure">
+                <i class="bi bi-mic"></i>
+                <span>Shure</span>
+              </a>
+              <a href="#" class="sidebar-link" data-nav-target="mercado-pago">
+                <i class="bi bi-credit-card-2-front"></i>
+                <span>Mercado Pago</span>
+              </a>
+              <a href="#" class="sidebar-link" data-nav-target="biworldwide">
+                <i class="bi bi-globe2"></i>
+                <span>BiWorldWide</span>
+              </a>
+            </nav>
+          </div>
+        </div>
+
+      </aside>
+
+      <div class="hub-main">
+        <header class="hub-topbar">
+          <div class="topbar-left">
+            <button class="btn btn-icon d-lg-none" type="button" data-sidebar-open aria-label="Abrir menu">
+              <i class="bi bi-list"></i>
+            </button>
+            <div>
+              <nav aria-label="breadcrumb">
+                <ol class="breadcrumb hub-breadcrumb mb-1">
+                  <li class="breadcrumb-item"><a href="#">Operação</a></li>
+                  <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
+                </ol>
+              </nav>
+              <p class="topbar-context mb-0">Resumo de pedidos, faturamento e estabilidade das integrações</p>
+            </div>
+          </div>
+
+          <div class="topbar-right">
+            <button type="button" class="btn btn-outline-primary btn-sm theme-toggle-btn is-active" data-theme-toggle aria-pressed="true">
+              <i class="bi bi-sun-fill"></i>
+              Tema claro
+            </button>
+
+            <button type="button" class="btn btn-icon position-relative" aria-label="Notificações">
+              <i class="bi bi-bell"></i>
+              <span class="notification-indicator"></span>
+            </button>
+
+            <div class="hub-user-menu" data-user-menu>
+              <button class="user-menu-trigger" type="button" data-user-menu-toggle aria-expanded="false">
+                <span class="user-avatar">DR</span>
+                <span class="user-meta">
+                  <strong>Denys Rocha</strong>
+                  <small>Admin operacional</small>
+                </span>
+                <i class="bi bi-chevron-down"></i>
+              </button>
+              <div class="hub-user-dropdown">
+                <a href="#"><i class="bi bi-person-circle"></i> Meu perfil</a>
+                <a href="#"><i class="bi bi-shield-check"></i> Permissões</a>
+                <a href="login.html"><i class="bi bi-box-arrow-right"></i> Sair</a>
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <main class="hub-content">
+          <section class="page-section">
+            <div class="dashboard-kpi-grid analytics-kpi-grid">
+              <article class="metric-card compact-metric-card">
+                <div class="metric-icon soft-blue"><i class="bi bi-receipt"></i></div>
+                <div>
+                  <p>Pedidos recebidos no dia</p>
+                  <h3>1.248</h3>
+                  <span class="metric-trend positive">+8,4% vs ontem</span>
+                </div>
+              </article>
+              <article class="metric-card compact-metric-card">
+                <div class="metric-icon soft-green"><i class="bi bi-check2-square"></i></div>
+                <div>
+                  <p>Pedidos faturados no dia</p>
+                  <h3>932</h3>
+                  <span class="metric-trend positive">74,7% do volume do dia</span>
+                </div>
+              </article>
+              <article class="metric-card compact-metric-card">
+                <div class="metric-icon soft-amber"><i class="bi bi-stack"></i></div>
+                <div>
+                  <p>Backlog atual</p>
+                  <h3>316</h3>
+                  <span class="metric-trend neutral">pendentes de faturamento</span>
+                </div>
+              </article>
+              <article class="metric-card compact-metric-card">
+                <div class="metric-icon soft-indigo"><i class="bi bi-cash-coin"></i></div>
+                <div>
+                  <p>Faturamento do dia</p>
+                  <h3>R$ 684 mil</h3>
+                  <span class="metric-trend positive">+6,1% vs ontem</span>
+                </div>
+              </article>
+              <article class="metric-card compact-metric-card">
+                <div class="metric-icon soft-cyan"><i class="bi bi-calculator"></i></div>
+                <div>
+                  <p>Ticket médio</p>
+                  <h3>R$ 734</h3>
+                  <span class="metric-trend neutral">por pedido faturado</span>
+                </div>
+              </article>
+              <article class="metric-card compact-metric-card metric-card-highlight metric-card-winner">
+                <div class="metric-icon soft-gold"><i class="bi bi-trophy"></i></div>
+                <div>
+                  <p>Marketplace líder do dia</p>
+                  <h3>Mercado Livre</h3>
+                  <span class="metric-trend positive">38% do volume</span>
+                </div>
+              </article>
+            </div>
+          </section>
+
+          <section class="page-section">
+            <div class="row g-4">
+              <div class="col-12 col-xl-6">
+                <article class="surface-card h-100 chart-card analytics-panel">
+                  <div class="section-heading">
+                    <div>
+                      <p class="eyebrow">Comparativo por marketplace</p>
+                      <h2>Pedidos por canal</h2>
+                    </div>
+                    <span class="chart-summary">1.248 pedidos no dia</span>
+                  </div>
+
+                  <div class="marketplace-bars">
+                    <div class="marketplace-bar-item" style="--value: 100%;">
+                      <div class="marketplace-bar-head">
+                        <strong>Mercado Livre</strong>
+                        <span>472 pedidos</span>
+                      </div>
+                      <div class="marketplace-bar-track"><span class="marketplace-bar-fill"></span></div>
+                      <small>38% do volume do dia</small>
+                    </div>
+                    <div class="marketplace-bar-item" style="--value: 76%;">
+                      <div class="marketplace-bar-head">
+                        <strong>Amazon</strong>
+                        <span>358 pedidos</span>
+                      </div>
+                      <div class="marketplace-bar-track"><span class="marketplace-bar-fill"></span></div>
+                      <small>29% do volume do dia</small>
+                    </div>
+                    <div class="marketplace-bar-item" style="--value: 58%;">
+                      <div class="marketplace-bar-head">
+                        <strong>Shopee</strong>
+                        <span>274 pedidos</span>
+                      </div>
+                      <div class="marketplace-bar-track"><span class="marketplace-bar-fill"></span></div>
+                      <small>22% do volume do dia</small>
+                    </div>
+                    <div class="marketplace-bar-item" style="--value: 34%;">
+                      <div class="marketplace-bar-head">
+                        <strong>Loja B2B</strong>
+                        <span>96 pedidos</span>
+                      </div>
+                      <div class="marketplace-bar-track"><span class="marketplace-bar-fill"></span></div>
+                      <small>8% do volume do dia</small>
+                    </div>
+                    <div class="marketplace-bar-item" style="--value: 18%;">
+                      <div class="marketplace-bar-head">
+                        <strong>Site próprio</strong>
+                        <span>48 pedidos</span>
+                      </div>
+                      <div class="marketplace-bar-track"><span class="marketplace-bar-fill"></span></div>
+                      <small>3% do volume do dia</small>
+                    </div>
+                  </div>
+                </article>
+              </div>
+
+              <div class="col-12 col-xl-6">
+                <article class="surface-card h-100 chart-card analytics-panel">
+                  <div class="section-heading">
+                    <div>
+                      <p class="eyebrow">Comparativo por marketplace</p>
+                      <h2>Faturamento por canal</h2>
+                    </div>
+                    <span class="chart-summary">R$ 684 mil no dia</span>
+                  </div>
+
+                  <div class="marketplace-bars revenue-marketplace-bars">
+                    <div class="marketplace-bar-item" style="--value: 100%;">
+                      <div class="marketplace-bar-head">
+                        <strong>Mercado Livre</strong>
+                        <span>R$ 248 mil</span>
+                      </div>
+                      <div class="marketplace-bar-track"><span class="marketplace-bar-fill"></span></div>
+                      <small>36% do faturamento do dia</small>
+                    </div>
+                    <div class="marketplace-bar-item" style="--value: 82%;">
+                      <div class="marketplace-bar-head">
+                        <strong>Amazon</strong>
+                        <span>R$ 204 mil</span>
+                      </div>
+                      <div class="marketplace-bar-track"><span class="marketplace-bar-fill"></span></div>
+                      <small>30% do faturamento do dia</small>
+                    </div>
+                    <div class="marketplace-bar-item" style="--value: 59%;">
+                      <div class="marketplace-bar-head">
+                        <strong>Shopee</strong>
+                        <span>R$ 142 mil</span>
+                      </div>
+                      <div class="marketplace-bar-track"><span class="marketplace-bar-fill"></span></div>
+                      <small>21% do faturamento do dia</small>
+                    </div>
+                    <div class="marketplace-bar-item" style="--value: 31%;">
+                      <div class="marketplace-bar-head">
+                        <strong>Loja B2B</strong>
+                        <span>R$ 66 mil</span>
+                      </div>
+                      <div class="marketplace-bar-track"><span class="marketplace-bar-fill"></span></div>
+                      <small>10% do faturamento do dia</small>
+                    </div>
+                    <div class="marketplace-bar-item" style="--value: 10%;">
+                      <div class="marketplace-bar-head">
+                        <strong>Site próprio</strong>
+                        <span>R$ 24 mil</span>
+                      </div>
+                      <div class="marketplace-bar-track"><span class="marketplace-bar-fill"></span></div>
+                      <small>3% do faturamento do dia</small>
+                    </div>
+                  </div>
+                </article>
+              </div>
+            </div>
+          </section>
+
+          <section class="page-section">
+            <div class="row g-4">
+              <div class="col-12 col-xxl-8">
+                <article class="surface-card h-100 analytics-panel">
+                  <div class="section-heading">
+                    <div>
+                      <p class="eyebrow">Evolução do dia</p>
+                      <h2>Pedidos x faturamento por hora</h2>
+                    </div>
+                    <div class="chart-legend">
+                      <span><i class="bi bi-square-fill legend-previous"></i> Pedidos recebidos</span>
+                      <span><i class="bi bi-square-fill legend-current"></i> Pedidos faturados</span>
+                    </div>
+                  </div>
+
+                  <div class="hourly-chart">
+                    <div class="hourly-chart-grid">
+                      <div class="hourly-chart-group" style="--inflow: 35%; --processed: 22%;"><div class="hourly-bars"><span class="hourly-bar inflow"></span><span class="hourly-bar processed"></span></div><small>08h</small></div>
+                      <div class="hourly-chart-group" style="--inflow: 48%; --processed: 31%;"><div class="hourly-bars"><span class="hourly-bar inflow"></span><span class="hourly-bar processed"></span></div><small>09h</small></div>
+                      <div class="hourly-chart-group" style="--inflow: 72%; --processed: 54%;"><div class="hourly-bars"><span class="hourly-bar inflow"></span><span class="hourly-bar processed"></span></div><small>10h</small></div>
+                      <div class="hourly-chart-group" style="--inflow: 84%; --processed: 63%;"><div class="hourly-bars"><span class="hourly-bar inflow"></span><span class="hourly-bar processed"></span></div><small>11h</small></div>
+                      <div class="hourly-chart-group" style="--inflow: 67%; --processed: 59%;"><div class="hourly-bars"><span class="hourly-bar inflow"></span><span class="hourly-bar processed"></span></div><small>12h</small></div>
+                      <div class="hourly-chart-group" style="--inflow: 58%; --processed: 61%;"><div class="hourly-bars"><span class="hourly-bar inflow"></span><span class="hourly-bar processed"></span></div><small>13h</small></div>
+                      <div class="hourly-chart-group" style="--inflow: 64%; --processed: 68%;"><div class="hourly-bars"><span class="hourly-bar inflow"></span><span class="hourly-bar processed"></span></div><small>14h</small></div>
+                      <div class="hourly-chart-group" style="--inflow: 56%; --processed: 62%;"><div class="hourly-bars"><span class="hourly-bar inflow"></span><span class="hourly-bar processed"></span></div><small>15h</small></div>
+                      <div class="hourly-chart-group" style="--inflow: 49%; --processed: 58%;"><div class="hourly-bars"><span class="hourly-bar inflow"></span><span class="hourly-bar processed"></span></div><small>16h</small></div>
+                      <div class="hourly-chart-group" style="--inflow: 41%; --processed: 50%;"><div class="hourly-bars"><span class="hourly-bar inflow"></span><span class="hourly-bar processed"></span></div><small>17h</small></div>
+                    </div>
+                  </div>
+                </article>
+              </div>
+
+              <div class="col-12 col-xxl-4">
+                <article class="surface-card h-100 analytics-panel">
+                  <div class="section-heading">
+                    <div>
+                      <p class="eyebrow">Fluxo operacional</p>
+                      <h2>Funil do dia</h2>
+                    </div>
+                    <span class="chart-summary">Conversão geral de 74,7%</span>
+                  </div>
+
+                  <div class="funnel-list">
+                    <div class="funnel-step">
+                      <div>
+                        <strong>Recebidos</strong>
+                        <p>Entradas confirmadas no HUB</p>
+                      </div>
+                      <span>1.248</span>
+                    </div>
+                    <div class="funnel-step">
+                      <div>
+                        <strong>Em processamento</strong>
+                        <p>Pedidos em esteira operacional</p>
+                      </div>
+                      <span>1.106</span>
+                    </div>
+                    <div class="funnel-step">
+                      <div>
+                        <strong>Faturados</strong>
+                        <p>Pedidos concluídos no ciclo do dia</p>
+                      </div>
+                      <span>932</span>
+                    </div>
+                    <div class="funnel-step is-attention">
+                      <div>
+                        <strong>Pendentes</strong>
+                        <p>Pedidos aguardando avanço</p>
+                      </div>
+                      <span>316</span>
+                    </div>
+                  </div>
+                </article>
+              </div>
+            </div>
+          </section>
+
+          <section class="page-section">
+            <article class="surface-card analytics-panel">
+              <div class="section-heading">
+                <div>
+                  <p class="eyebrow">Resumo analítico</p>
+                  <h2>Marketplace x resultado do dia</h2>
+                </div>
+                <a href="pedidos-lista.html" class="btn btn-outline-primary btn-sm">Abrir pedidos</a>
+              </div>
+
+              <div class="table-responsive">
+                <table class="table table-hub align-middle mb-0 analytics-table">
+                  <thead>
+                    <tr>
+                      <th>Marketplace</th>
+                      <th>Pedidos</th>
+                      <th>Faturados</th>
+                      <th>Backlog</th>
+                      <th>Faturamento</th>
+                      <th>Ticket médio</th>
+                      <th>% do volume</th>
+                      <th>% do faturamento</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Mercado Livre</td>
+                      <td>472</td>
+                      <td>396</td>
+                      <td>76</td>
+                      <td>R$ 248 mil</td>
+                      <td>R$ 626</td>
+                      <td>38%</td>
+                      <td>36%</td>
+                    </tr>
+                    <tr>
+                      <td>Amazon</td>
+                      <td>358</td>
+                      <td>274</td>
+                      <td>84</td>
+                      <td>R$ 204 mil</td>
+                      <td>R$ 745</td>
+                      <td>29%</td>
+                      <td>30%</td>
+                    </tr>
+                    <tr>
+                      <td>Shopee</td>
+                      <td>274</td>
+                      <td>186</td>
+                      <td>88</td>
+                      <td>R$ 142 mil</td>
+                      <td>R$ 763</td>
+                      <td>22%</td>
+                      <td>21%</td>
+                    </tr>
+                    <tr>
+                      <td>Loja B2B</td>
+                      <td>96</td>
+                      <td>52</td>
+                      <td>44</td>
+                      <td>R$ 66 mil</td>
+                      <td>R$ 1.269</td>
+                      <td>8%</td>
+                      <td>10%</td>
+                    </tr>
+                    <tr>
+                      <td>Site próprio</td>
+                      <td>48</td>
+                      <td>24</td>
+                      <td>24</td>
+                      <td>R$ 24 mil</td>
+                      <td>R$ 1.000</td>
+                      <td>3%</td>
+                      <td>3%</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </article>
+          </section>
+        </main>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>

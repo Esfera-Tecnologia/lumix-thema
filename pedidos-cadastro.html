@@ -1,0 +1,506 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>HUB | Cadastro de Pedido</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Sora:wght@500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+  </head>
+  <body class="hub-app theme-light" data-page="pedidos-cadastro">
+    <div class="hub-backdrop" data-sidebar-close></div>
+
+    <div class="hub-layout">
+      <aside class="hub-sidebar">
+        <div class="sidebar-header">
+          <a href="dashboard.html" class="sidebar-brand">
+            <span class="sidebar-brand-mark">H</span>
+            <span class="sidebar-brand-text">
+              <strong>HUB</strong>
+              <small>LUMIX Operations</small>
+            </span>
+          </a>
+          <button class="btn btn-icon d-none d-lg-inline-flex" type="button" data-sidebar-toggle aria-label="Recolher menu">
+            <i class="bi bi-layout-sidebar-inset"></i>
+          </button>
+        </div>
+
+        <div class="sidebar-body">
+          <div class="sidebar-section">
+            <span class="sidebar-section-title">Visão geral</span>
+            <nav class="sidebar-nav">
+              <a href="dashboard.html" class="sidebar-link" data-nav-target="dashboard">
+                <i class="bi bi-grid-1x2"></i>
+                <span>Dashboard</span>
+              </a>
+
+              <div class="sidebar-group" data-nav-group="configuracao">
+                <button class="sidebar-link sidebar-toggle" type="button" data-submenu-toggle aria-expanded="false">
+                  <span class="sidebar-link-main">
+                    <i class="bi bi-sliders2"></i>
+                    <span>Configuração</span>
+                  </span>
+                  <i class="bi bi-chevron-down submenu-arrow"></i>
+                </button>
+                <div class="sidebar-submenu">
+                  <a href="#" class="sidebar-sublink">Usuários e perfis</a>
+                  <a href="#" class="sidebar-sublink">Regras de integração</a>
+                  <a href="#" class="sidebar-sublink">Conectores</a>
+                </div>
+              </div>
+
+              <div class="sidebar-group" data-nav-group="pedidos">
+                <button class="sidebar-link sidebar-toggle" type="button" data-submenu-toggle aria-expanded="false">
+                  <span class="sidebar-link-main">
+                    <i class="bi bi-bag-check"></i>
+                    <span>Pedidos</span>
+                  </span>
+                  <i class="bi bi-chevron-down submenu-arrow"></i>
+                </button>
+                <div class="sidebar-submenu">
+                  <a href="pedidos-lista.html" class="sidebar-sublink" data-nav-target="pedidos-lista">Lista de pedidos</a>
+                  <a href="pedidos-cadastro.html" class="sidebar-sublink" data-nav-target="pedidos-cadastro">Cadastro / Integração</a>
+                </div>
+              </div>
+            </nav>
+          </div>
+
+          <div class="sidebar-section">
+            <span class="sidebar-section-title">Módulos</span>
+            <nav class="sidebar-nav">
+              <a href="#" class="sidebar-link" data-nav-target="lumix">
+                <i class="bi bi-broadcast"></i>
+                <span>Lumix</span>
+              </a>
+              <a href="#" class="sidebar-link" data-nav-target="magentos">
+                <i class="bi bi-box-seam"></i>
+                <span>Magentos</span>
+              </a>
+              <a href="#" class="sidebar-link" data-nav-target="consulta-sap">
+                <i class="bi bi-database-check"></i>
+                <span>Consulta SAP</span>
+              </a>
+              <a href="#" class="sidebar-link" data-nav-target="anymarket">
+                <i class="bi bi-diagram-3"></i>
+                <span>Anymarket</span>
+              </a>
+              <a href="#" class="sidebar-link" data-nav-target="shure">
+                <i class="bi bi-mic"></i>
+                <span>Shure</span>
+              </a>
+              <a href="#" class="sidebar-link" data-nav-target="mercado-pago">
+                <i class="bi bi-credit-card-2-front"></i>
+                <span>Mercado Pago</span>
+              </a>
+              <a href="#" class="sidebar-link" data-nav-target="biworldwide">
+                <i class="bi bi-globe2"></i>
+                <span>BiWorldWide</span>
+              </a>
+            </nav>
+          </div>
+        </div>
+
+      </aside>
+
+      <div class="hub-main">
+        <header class="hub-topbar">
+          <div class="topbar-left">
+            <button class="btn btn-icon d-lg-none" type="button" data-sidebar-open aria-label="Abrir menu">
+              <i class="bi bi-list"></i>
+            </button>
+            <div>
+              <nav aria-label="breadcrumb">
+                <ol class="breadcrumb hub-breadcrumb mb-1">
+                  <li class="breadcrumb-item"><a href="dashboard.html">Operação</a></li>
+                  <li class="breadcrumb-item"><a href="pedidos-lista.html">Pedidos</a></li>
+                  <li class="breadcrumb-item active" aria-current="page">Cadastro</li>
+                </ol>
+              </nav>
+              <p class="topbar-context mb-0">Padrão de formulário para pedidos, integrações e entidades futuras</p>
+            </div>
+          </div>
+
+          <div class="topbar-right">
+            <button type="button" class="btn btn-outline-primary btn-sm theme-toggle-btn is-active" data-theme-toggle aria-pressed="true">
+              <i class="bi bi-sun-fill"></i>
+              Tema claro
+            </button>
+
+            <label class="topbar-search">
+              <i class="bi bi-search"></i>
+              <input type="search" placeholder="Buscar pedido, cliente ou módulo" data-global-search>
+              <span class="search-shortcut">/</span>
+            </label>
+
+            <div class="hub-user-menu" data-user-menu>
+              <button class="user-menu-trigger" type="button" data-user-menu-toggle aria-expanded="false">
+                <span class="user-avatar">DR</span>
+                <span class="user-meta">
+                  <strong>Denys Rocha</strong>
+                  <small>Admin operacional</small>
+                </span>
+                <i class="bi bi-chevron-down"></i>
+              </button>
+              <div class="hub-user-dropdown">
+                <a href="#"><i class="bi bi-person-circle"></i> Meu perfil</a>
+                <a href="#"><i class="bi bi-shield-check"></i> Permissões</a>
+                <a href="login.html"><i class="bi bi-box-arrow-right"></i> Sair</a>
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <main class="hub-content">
+          <section class="page-section">
+            <div class="page-header-card">
+              <div>
+                <p class="eyebrow">Pedido / Integração</p>
+                <h1>Cadastro de pedido</h1>
+                <p>Estrutura desenhada para servir como base escalável para os formulários administrativos do HUB.</p>
+              </div>
+              <div class="page-actions">
+                <a href="pedidos-lista.html" class="btn btn-outline-primary">
+                  <i class="bi bi-arrow-left"></i>
+                  Voltar
+                </a>
+              </div>
+            </div>
+          </section>
+
+          <section class="page-section">
+            <form class="row g-4">
+              <div class="col-12 col-xxl-8">
+                <article class="surface-card form-section-card">
+                  <div class="section-heading">
+                    <div>
+                      <p class="eyebrow">Bloco 1</p>
+                      <h2>Dados gerais</h2>
+                    </div>
+                    <span class="status-badge status-processing">Sincronização em preparo</span>
+                  </div>
+
+                  <div class="row g-3">
+                    <div class="col-md-4">
+                      <label class="form-label" for="pedido-numero">Número do pedido</label>
+                      <input type="text" class="form-control is-valid" id="pedido-numero" value="#48231">
+                      <div class="valid-feedback d-block">Identificador principal confirmado no canal de origem.</div>
+                    </div>
+                    <div class="col-md-4">
+                      <label class="form-label" for="canal-venda">Canal de venda</label>
+                      <select class="form-select" id="canal-venda">
+                        <option>Mercado Livre</option>
+                        <option>Loja B2B</option>
+                        <option>Amazon</option>
+                        <option>Shopee</option>
+                      </select>
+                    </div>
+                    <div class="col-md-4">
+                      <label class="form-label" for="marketplace">Marketplace</label>
+                      <select class="form-select" id="marketplace">
+                        <option>Anymarket</option>
+                        <option>Magentos</option>
+                        <option>Marketplace próprio</option>
+                      </select>
+                    </div>
+                    <div class="col-md-4">
+                      <label class="form-label" for="data-pedido">Data do pedido</label>
+                      <input type="date" class="form-control" id="data-pedido" value="2026-03-18">
+                    </div>
+                    <div class="col-md-4">
+                      <label class="form-label" for="status-pedido">Status</label>
+                      <select class="form-select" id="status-pedido">
+                        <option>Processando</option>
+                        <option>Pendente</option>
+                        <option>Integrado</option>
+                        <option>Erro</option>
+                        <option>Concluído</option>
+                      </select>
+                    </div>
+                    <div class="col-md-4">
+                      <label class="form-label" for="origem-integracao">Origem da integração</label>
+                      <select class="form-select" id="origem-integracao">
+                        <option>Webhook marketplace</option>
+                        <option>Rotina agendada</option>
+                        <option>Cadastro manual</option>
+                      </select>
+                    </div>
+                  </div>
+                </article>
+
+                <article class="surface-card form-section-card">
+                  <div class="section-heading">
+                    <div>
+                      <p class="eyebrow">Bloco 2</p>
+                      <h2>Cliente</h2>
+                    </div>
+                  </div>
+
+                  <div class="row g-3">
+                    <div class="col-md-6">
+                      <label class="form-label" for="cliente-nome">Nome do cliente</label>
+                      <input type="text" class="form-control" id="cliente-nome" value="Studio Prime">
+                    </div>
+                    <div class="col-md-6">
+                      <label class="form-label" for="cliente-email">E-mail</label>
+                      <div class="input-group input-group-modern">
+                        <span class="input-group-text"><i class="bi bi-envelope"></i></span>
+                        <input type="email" class="form-control" id="cliente-email" value="compras@studioprime.com.br">
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <label class="form-label" for="cliente-telefone">Telefone</label>
+                      <input type="text" class="form-control" id="cliente-telefone" value="(11) 98888-1122">
+                    </div>
+                    <div class="col-md-4">
+                      <label class="form-label" for="cliente-documento">Documento</label>
+                      <input type="text" class="form-control" id="cliente-documento" value="12.345.678/0001-90">
+                    </div>
+                    <div class="col-md-4">
+                      <label class="form-label" for="cliente-segmento">Segmento</label>
+                      <select class="form-select" id="cliente-segmento">
+                        <option>Revenda especializada</option>
+                        <option>Varejo</option>
+                        <option>Projeto corporativo</option>
+                      </select>
+                    </div>
+                    <div class="col-12">
+                      <label class="form-label" for="cliente-observacoes">Observações</label>
+                      <textarea class="form-control" id="cliente-observacoes" rows="3" placeholder="Notas internas sobre condições comerciais e tratativas do pedido."></textarea>
+                    </div>
+                  </div>
+                </article>
+
+                <article class="surface-card form-section-card">
+                  <div class="section-heading">
+                    <div>
+                      <p class="eyebrow">Bloco 3</p>
+                      <h2>Dados financeiros</h2>
+                    </div>
+                  </div>
+
+                  <div class="row g-3">
+                    <div class="col-md-4">
+                      <label class="form-label" for="valor-total">Valor total</label>
+                      <input type="text" class="form-control" id="valor-total" value="R$ 4.820,00">
+                    </div>
+                    <div class="col-md-4">
+                      <label class="form-label" for="forma-pagamento">Forma de pagamento</label>
+                      <select class="form-select" id="forma-pagamento">
+                        <option>Cartão de crédito</option>
+                        <option>PIX</option>
+                        <option>Boleto</option>
+                      </select>
+                    </div>
+                    <div class="col-md-4">
+                      <label class="form-label" for="status-pagamento">Status do pagamento</label>
+                      <select class="form-select" id="status-pagamento">
+                        <option>Aprovado</option>
+                        <option>Em análise</option>
+                        <option>Recusado</option>
+                      </select>
+                    </div>
+                    <div class="col-md-6">
+                      <label class="form-label" for="codigo-transacao">Código da transação</label>
+                      <div class="input-group input-group-modern">
+                        <span class="input-group-text"><i class="bi bi-upc-scan"></i></span>
+                        <input type="text" class="form-control is-invalid" id="codigo-transacao" value="MP-38A8-20260318">
+                      </div>
+                      <div class="invalid-feedback d-block">Verifique divergência entre o retorno do gateway e o SAP.</div>
+                    </div>
+                    <div class="col-md-6">
+                      <label class="form-label" for="gateway">Gateway</label>
+                      <select class="form-select" id="gateway">
+                        <option>Mercado Pago</option>
+                        <option>Adyen</option>
+                        <option>Gateway interno</option>
+                      </select>
+                    </div>
+                  </div>
+                </article>
+
+                <article class="surface-card form-section-card">
+                  <div class="section-heading">
+                    <div>
+                      <p class="eyebrow">Bloco 4</p>
+                      <h2>Integração</h2>
+                    </div>
+                  </div>
+
+                  <div class="row g-4">
+                    <div class="col-md-6">
+                      <div class="form-check form-switch form-switch-card">
+                        <input class="form-check-input" type="checkbox" role="switch" id="sap-switch" checked data-switch-target="sap-switch-status">
+                        <label class="form-check-label" for="sap-switch">Enviar ao SAP</label>
+                        <span class="switch-meta" id="sap-switch-status" data-on="Ativado" data-off="Desativado">Ativado</span>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-check form-switch form-switch-card">
+                        <input class="form-check-input" type="checkbox" role="switch" id="estoque-switch" checked data-switch-target="estoque-switch-status">
+                        <label class="form-check-label" for="estoque-switch">Sincronizar estoque</label>
+                        <span class="switch-meta" id="estoque-switch-status" data-on="Ativado" data-off="Desativado">Ativado</span>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-check form-switch form-switch-card">
+                        <input class="form-check-input" type="checkbox" role="switch" id="marketplace-switch" checked data-switch-target="marketplace-switch-status">
+                        <label class="form-check-label" for="marketplace-switch">Gerar atualização em marketplace</label>
+                        <span class="switch-meta" id="marketplace-switch-status" data-on="Ativado" data-off="Desativado">Ativado</span>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <label class="form-label d-block">Prioridade de processamento</label>
+                      <div class="radio-group">
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="prioridade" id="prioridade-baixa">
+                          <label class="form-check-label" for="prioridade-baixa">Baixa</label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="prioridade" id="prioridade-normal" checked>
+                          <label class="form-check-label" for="prioridade-normal">Normal</label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="prioridade" id="prioridade-urgente">
+                          <label class="form-check-label" for="prioridade-urgente">Urgente</label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-12">
+                      <label class="form-label" for="obs-tecnicas">Observações técnicas</label>
+                      <textarea class="form-control" id="obs-tecnicas" rows="4" placeholder="Regras de fallback, observações de fila ou contexto técnico da integração."></textarea>
+                      <div class="form-text">Use este campo para registrar comportamento de webhook, tentativas e dependências externas.</div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-check form-check-card">
+                        <input class="form-check-input" type="checkbox" value="" id="auditoria">
+                        <label class="form-check-label" for="auditoria">Solicitar auditoria manual antes do faturamento</label>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-check form-check-card">
+                        <input class="form-check-input" type="checkbox" value="" id="notificar" checked>
+                        <label class="form-check-label" for="notificar">Notificar equipe operacional ao concluir processamento</label>
+                      </div>
+                    </div>
+                  </div>
+                </article>
+
+                <article class="surface-card form-section-card">
+                  <div class="section-heading">
+                    <div>
+                      <p class="eyebrow">Bloco 5</p>
+                      <h2>Endereço / Entrega</h2>
+                    </div>
+                  </div>
+
+                  <div class="row g-3">
+                    <div class="col-md-3">
+                      <label class="form-label" for="cep">CEP</label>
+                      <input type="text" class="form-control" id="cep" value="04543-000">
+                    </div>
+                    <div class="col-md-7">
+                      <label class="form-label" for="endereco">Endereço</label>
+                      <input type="text" class="form-control" id="endereco" value="Rua Gomes de Carvalho">
+                    </div>
+                    <div class="col-md-2">
+                      <label class="form-label" for="numero">Número</label>
+                      <input type="text" class="form-control" id="numero" value="1629">
+                    </div>
+                    <div class="col-md-4">
+                      <label class="form-label" for="complemento">Complemento</label>
+                      <input type="text" class="form-control" id="complemento" value="Conj. 71">
+                    </div>
+                    <div class="col-md-4">
+                      <label class="form-label" for="bairro">Bairro</label>
+                      <input type="text" class="form-control" id="bairro" value="Vila Olímpia">
+                    </div>
+                    <div class="col-md-3">
+                      <label class="form-label" for="cidade">Cidade</label>
+                      <input type="text" class="form-control" id="cidade" value="São Paulo">
+                    </div>
+                    <div class="col-md-1">
+                      <label class="form-label" for="estado">UF</label>
+                      <input type="text" class="form-control" id="estado" value="SP">
+                    </div>
+                  </div>
+                </article>
+              </div>
+
+              <div class="col-12 col-xxl-4">
+                <article class="surface-card form-section-card">
+                  <div class="section-heading">
+                    <div>
+                      <p class="eyebrow">Resumo</p>
+                      <h2>Contexto do processamento</h2>
+                    </div>
+                  </div>
+
+                  <div class="summary-list">
+                    <div class="summary-item">
+                      <span>Canal</span>
+                      <strong>Mercado Livre</strong>
+                    </div>
+                    <div class="summary-item">
+                      <span>Origem</span>
+                      <strong>Webhook marketplace</strong>
+                    </div>
+                    <div class="summary-item">
+                      <span>Última sincronização</span>
+                      <strong>18/03/2026 09:18</strong>
+                    </div>
+                    <div class="summary-item">
+                      <span>Responsável</span>
+                      <strong>Time de Operações</strong>
+                    </div>
+                  </div>
+
+                  <div class="inline-alert inline-alert-warning mt-4">
+                    <i class="bi bi-exclamation-circle"></i>
+                    <div>
+                      <strong>Atenção ao gateway</strong>
+                      <p>Existe divergência de confirmação financeira. Revise antes de enviar para faturamento.</p>
+                    </div>
+                  </div>
+                </article>
+
+                <article class="surface-card form-section-card">
+                  <div class="section-heading">
+                    <div>
+                      <p class="eyebrow">Anexos</p>
+                      <h2>Nenhum documento vinculado</h2>
+                    </div>
+                  </div>
+
+                  <div class="empty-state compact">
+                    <div class="empty-state-icon">
+                      <i class="bi bi-folder2-open"></i>
+                    </div>
+                    <h3>Sem comprovantes anexados</h3>
+                    <p>Adicione XML, comprovante ou observações de suporte se a operação exigir auditoria.</p>
+                    <button class="btn btn-outline-primary btn-sm" type="button">Adicionar anexo</button>
+                  </div>
+                </article>
+              </div>
+
+              <div class="col-12">
+                <div class="sticky-form-actions">
+                  <a href="pedidos-lista.html" class="btn btn-outline-primary">Cancelar</a>
+                  <button type="button" class="btn btn-outline-primary">Salvar rascunho</button>
+                  <button type="submit" class="btn btn-secondary">Salvar</button>
+                  <button type="submit" class="btn btn-primary">Salvar e processar</button>
+                </div>
+              </div>
+            </form>
+          </section>
+        </main>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>

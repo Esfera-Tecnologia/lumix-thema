@@ -1,0 +1,385 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>HUB | Lista de Pedidos</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Sora:wght@500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+  </head>
+  <body class="hub-app theme-light" data-page="pedidos-lista">
+    <div class="hub-backdrop" data-sidebar-close></div>
+
+    <div class="hub-layout">
+      <aside class="hub-sidebar">
+        <div class="sidebar-header">
+          <a href="dashboard.html" class="sidebar-brand">
+            <span class="sidebar-brand-mark">H</span>
+            <span class="sidebar-brand-text">
+              <strong>HUB</strong>
+              <small>LUMIX Operations</small>
+            </span>
+          </a>
+          <button class="btn btn-icon d-none d-lg-inline-flex" type="button" data-sidebar-toggle aria-label="Recolher menu">
+            <i class="bi bi-layout-sidebar-inset"></i>
+          </button>
+        </div>
+
+        <div class="sidebar-body">
+          <div class="sidebar-section">
+            <span class="sidebar-section-title">Visão geral</span>
+            <nav class="sidebar-nav">
+              <a href="dashboard.html" class="sidebar-link" data-nav-target="dashboard">
+                <i class="bi bi-grid-1x2"></i>
+                <span>Dashboard</span>
+              </a>
+
+              <div class="sidebar-group" data-nav-group="configuracao">
+                <button class="sidebar-link sidebar-toggle" type="button" data-submenu-toggle aria-expanded="false">
+                  <span class="sidebar-link-main">
+                    <i class="bi bi-sliders2"></i>
+                    <span>Configuração</span>
+                  </span>
+                  <i class="bi bi-chevron-down submenu-arrow"></i>
+                </button>
+                <div class="sidebar-submenu">
+                  <a href="#" class="sidebar-sublink">Usuários e perfis</a>
+                  <a href="#" class="sidebar-sublink">Regras de integração</a>
+                  <a href="#" class="sidebar-sublink">Conectores</a>
+                </div>
+              </div>
+
+              <div class="sidebar-group" data-nav-group="pedidos">
+                <button class="sidebar-link sidebar-toggle" type="button" data-submenu-toggle aria-expanded="false">
+                  <span class="sidebar-link-main">
+                    <i class="bi bi-bag-check"></i>
+                    <span>Pedidos</span>
+                  </span>
+                  <i class="bi bi-chevron-down submenu-arrow"></i>
+                </button>
+                <div class="sidebar-submenu">
+                  <a href="pedidos-lista.html" class="sidebar-sublink" data-nav-target="pedidos-lista">Lista de pedidos</a>
+                  <a href="pedidos-cadastro.html" class="sidebar-sublink" data-nav-target="pedidos-cadastro">Cadastro / Integração</a>
+                </div>
+              </div>
+            </nav>
+          </div>
+
+          <div class="sidebar-section">
+            <span class="sidebar-section-title">Módulos</span>
+            <nav class="sidebar-nav">
+              <a href="#" class="sidebar-link" data-nav-target="lumix">
+                <i class="bi bi-broadcast"></i>
+                <span>Lumix</span>
+              </a>
+              <a href="#" class="sidebar-link" data-nav-target="magentos">
+                <i class="bi bi-box-seam"></i>
+                <span>Magentos</span>
+              </a>
+              <a href="#" class="sidebar-link" data-nav-target="consulta-sap">
+                <i class="bi bi-database-check"></i>
+                <span>Consulta SAP</span>
+              </a>
+              <a href="#" class="sidebar-link" data-nav-target="anymarket">
+                <i class="bi bi-diagram-3"></i>
+                <span>Anymarket</span>
+              </a>
+              <a href="#" class="sidebar-link" data-nav-target="shure">
+                <i class="bi bi-mic"></i>
+                <span>Shure</span>
+              </a>
+              <a href="#" class="sidebar-link" data-nav-target="mercado-pago">
+                <i class="bi bi-credit-card-2-front"></i>
+                <span>Mercado Pago</span>
+              </a>
+              <a href="#" class="sidebar-link" data-nav-target="biworldwide">
+                <i class="bi bi-globe2"></i>
+                <span>BiWorldWide</span>
+              </a>
+            </nav>
+          </div>
+        </div>
+
+      </aside>
+
+      <div class="hub-main">
+        <header class="hub-topbar">
+          <div class="topbar-left">
+            <button class="btn btn-icon d-lg-none" type="button" data-sidebar-open aria-label="Abrir menu">
+              <i class="bi bi-list"></i>
+            </button>
+            <div>
+              <nav aria-label="breadcrumb">
+                <ol class="breadcrumb hub-breadcrumb mb-1">
+                  <li class="breadcrumb-item"><a href="dashboard.html">Operação</a></li>
+                  <li class="breadcrumb-item"><a href="#">Pedidos</a></li>
+                  <li class="breadcrumb-item active" aria-current="page">Lista</li>
+                </ol>
+              </nav>
+              <p class="topbar-context mb-0">Monitoramento, filtro e ação sobre pedidos multicanal</p>
+            </div>
+          </div>
+
+          <div class="topbar-right">
+            <button type="button" class="btn btn-outline-primary btn-sm theme-toggle-btn is-active" data-theme-toggle aria-pressed="true">
+              <i class="bi bi-sun-fill"></i>
+              Tema claro
+            </button>
+
+            <label class="topbar-search">
+              <i class="bi bi-search"></i>
+              <input type="search" placeholder="Buscar pedido, cliente ou módulo" data-global-search>
+              <span class="search-shortcut">/</span>
+            </label>
+
+            <div class="hub-user-menu" data-user-menu>
+              <button class="user-menu-trigger" type="button" data-user-menu-toggle aria-expanded="false">
+                <span class="user-avatar">DR</span>
+                <span class="user-meta">
+                  <strong>Denys Rocha</strong>
+                  <small>Admin operacional</small>
+                </span>
+                <i class="bi bi-chevron-down"></i>
+              </button>
+              <div class="hub-user-dropdown">
+                <a href="#"><i class="bi bi-person-circle"></i> Meu perfil</a>
+                <a href="#"><i class="bi bi-shield-check"></i> Permissões</a>
+                <a href="login.html"><i class="bi bi-box-arrow-right"></i> Sair</a>
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <main class="hub-content">
+          <section class="page-section">
+            <article class="surface-card">
+              <div class="section-heading">
+                <h2>Filtros</h2>
+                <button class="btn btn-outline-primary btn-sm" type="button" data-filter-toggle data-filter-target="orders-filters">
+                  <i class="bi bi-funnel"></i>
+                  Mostrar filtros avançados
+                </button>
+              </div>
+
+              <div class="filter-panel collapsed" id="orders-filters">
+                <div class="row g-3">
+                  <div class="col-md-4 col-xl-2">
+                    <label class="form-label" for="filtro-id">Número do pedido</label>
+                    <input type="text" class="form-control" id="filtro-id" placeholder="#48231">
+                  </div>
+                  <div class="col-md-4 col-xl-2">
+                    <label class="form-label" for="filtro-canal">Canal de venda</label>
+                    <select class="form-select" id="filtro-canal">
+                      <option selected>Todos</option>
+                      <option>Mercado Livre</option>
+                      <option>Shopee</option>
+                      <option>Loja B2B</option>
+                      <option>Amazon</option>
+                    </select>
+                  </div>
+                  <div class="col-md-4 col-xl-2">
+                    <label class="form-label" for="filtro-status">Status</label>
+                    <select class="form-select" id="filtro-status">
+                      <option selected>Todos</option>
+                      <option>Pendente</option>
+                      <option>Processando</option>
+                      <option>Integrado</option>
+                      <option>Erro</option>
+                      <option>Concluído</option>
+                    </select>
+                  </div>
+                  <div class="col-md-4 col-xl-2">
+                    <label class="form-label" for="filtro-integracao">Integração</label>
+                    <select class="form-select" id="filtro-integracao">
+                      <option selected>Todas</option>
+                      <option>SAP</option>
+                      <option>Anymarket</option>
+                      <option>Magentos</option>
+                      <option>Mercado Pago</option>
+                    </select>
+                  </div>
+                  <div class="col-md-4 col-xl-2">
+                    <label class="form-label" for="filtro-data-inicial">Período inicial</label>
+                    <input type="date" class="form-control" id="filtro-data-inicial">
+                  </div>
+                  <div class="col-md-4 col-xl-2">
+                    <label class="form-label" for="filtro-data-final">Período final</label>
+                    <input type="date" class="form-control" id="filtro-data-final">
+                  </div>
+                  <div class="col-md-8 col-xl-4">
+                    <label class="form-label" for="filtro-cliente">Cliente</label>
+                    <input type="text" class="form-control" id="filtro-cliente" placeholder="Nome, documento ou e-mail">
+                  </div>
+                  <div class="col-md-4 col-xl-8 d-flex align-items-end justify-content-xl-end gap-2">
+                    <button class="btn btn-outline-primary" type="button">Limpar</button>
+                    <button class="btn btn-primary" type="button">Filtrar</button>
+                  </div>
+                </div>
+              </div>
+            </article>
+          </section>
+
+          <section class="page-section">
+            <article class="surface-card">
+              <div class="section-heading">
+                <div>
+                  <p class="eyebrow">Volume atual</p>
+                  <h2>1.248 pedidos encontrados</h2>
+                </div>
+                <div class="d-flex flex-wrap gap-2">
+                  <span class="status-badge status-online">Integrados 812</span>
+                  <span class="status-badge status-processing">Processando 233</span>
+                  <span class="status-badge status-warning">Pendentes 156</span>
+                  <span class="status-badge status-danger">Erro 47</span>
+                </div>
+              </div>
+
+              <div class="table-responsive">
+                <table class="table table-hub align-middle mb-0">
+                  <thead>
+                    <tr>
+                      <th>ID</th>
+                      <th>Pedido</th>
+                      <th>Canal</th>
+                      <th>Cliente</th>
+                      <th>Valor</th>
+                      <th>Data</th>
+                      <th>Status</th>
+                      <th>Integração</th>
+                      <th class="text-end">Ações</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>8472</td>
+                      <td>#48231</td>
+                      <td>Mercado Livre</td>
+                      <td>Studio Prime</td>
+                      <td>R$ 4.820,00</td>
+                      <td>18/03/2026 09:14</td>
+                      <td><span class="status-badge status-processing">Processando</span></td>
+                      <td>SAP + Anymarket</td>
+                      <td class="text-end">
+                        <div class="action-list">
+                          <a href="#" class="table-action" aria-label="Visualizar pedido"><i class="bi bi-eye"></i></a>
+                          <a href="pedidos-cadastro.html" class="table-action" aria-label="Editar pedido"><i class="bi bi-pencil-square"></i></a>
+                          <a href="#" class="table-action" aria-label="Mais opções"><i class="bi bi-three-dots"></i></a>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>8468</td>
+                      <td>#48226</td>
+                      <td>Loja B2B</td>
+                      <td>AV Solutions</td>
+                      <td>R$ 9.345,90</td>
+                      <td>18/03/2026 08:51</td>
+                      <td><span class="status-badge status-online">Integrado</span></td>
+                      <td>SAP</td>
+                      <td class="text-end">
+                        <div class="action-list">
+                          <a href="#" class="table-action" aria-label="Visualizar pedido"><i class="bi bi-eye"></i></a>
+                          <a href="pedidos-cadastro.html" class="table-action" aria-label="Editar pedido"><i class="bi bi-pencil-square"></i></a>
+                          <a href="#" class="table-action" aria-label="Mais opções"><i class="bi bi-three-dots"></i></a>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>8459</td>
+                      <td>#48218</td>
+                      <td>Amazon</td>
+                      <td>Lightbox Brasil</td>
+                      <td>R$ 2.117,45</td>
+                      <td>18/03/2026 08:17</td>
+                      <td><span class="status-badge status-warning">Pendente</span></td>
+                      <td>Magentos</td>
+                      <td class="text-end">
+                        <div class="action-list">
+                          <a href="#" class="table-action" aria-label="Visualizar pedido"><i class="bi bi-eye"></i></a>
+                          <a href="pedidos-cadastro.html" class="table-action" aria-label="Editar pedido"><i class="bi bi-pencil-square"></i></a>
+                          <a href="#" class="table-action" aria-label="Mais opções"><i class="bi bi-three-dots"></i></a>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>8441</td>
+                      <td>#48204</td>
+                      <td>Mercado Pago</td>
+                      <td>Audio Mix</td>
+                      <td>R$ 1.289,00</td>
+                      <td>18/03/2026 07:46</td>
+                      <td><span class="status-badge status-danger">Erro</span></td>
+                      <td>Gateway</td>
+                      <td class="text-end">
+                        <div class="action-list">
+                          <a href="#" class="table-action" aria-label="Visualizar pedido"><i class="bi bi-eye"></i></a>
+                          <a href="pedidos-cadastro.html" class="table-action" aria-label="Editar pedido"><i class="bi bi-pencil-square"></i></a>
+                          <a href="#" class="table-action" aria-label="Mais opções"><i class="bi bi-three-dots"></i></a>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>8437</td>
+                      <td>#48199</td>
+                      <td>Shopee</td>
+                      <td>Casa do DJ</td>
+                      <td>R$ 798,00</td>
+                      <td>18/03/2026 07:21</td>
+                      <td><span class="status-badge status-online">Concluído</span></td>
+                      <td>SAP + ERP</td>
+                      <td class="text-end">
+                        <div class="action-list">
+                          <a href="#" class="table-action" aria-label="Visualizar pedido"><i class="bi bi-eye"></i></a>
+                          <a href="pedidos-cadastro.html" class="table-action" aria-label="Editar pedido"><i class="bi bi-pencil-square"></i></a>
+                          <a href="#" class="table-action" aria-label="Mais opções"><i class="bi bi-three-dots"></i></a>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>8426</td>
+                      <td>#48186</td>
+                      <td>Loja B2B</td>
+                      <td>Wave Commerce</td>
+                      <td>R$ 5.110,60</td>
+                      <td>18/03/2026 06:54</td>
+                      <td><span class="status-badge status-muted">Cancelado</span></td>
+                      <td>SAP</td>
+                      <td class="text-end">
+                        <div class="action-list">
+                          <a href="#" class="table-action" aria-label="Visualizar pedido"><i class="bi bi-eye"></i></a>
+                          <a href="pedidos-cadastro.html" class="table-action" aria-label="Editar pedido"><i class="bi bi-pencil-square"></i></a>
+                          <a href="#" class="table-action" aria-label="Mais opções"><i class="bi bi-three-dots"></i></a>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div class="table-footer">
+                <p class="mb-0 text-secondary">Exibindo 1-6 de 1.248 registros</p>
+                <nav aria-label="Paginação de pedidos">
+                  <ul class="pagination pagination-hub mb-0">
+                    <li class="page-item disabled"><a class="page-link" href="#">Anterior</a></li>
+                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item"><a class="page-link" href="#">4</a></li>
+                    <li class="page-item"><a class="page-link" href="#">Próxima</a></li>
+                  </ul>
+                </nav>
+              </div>
+            </article>
+          </section>
+        </main>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>
